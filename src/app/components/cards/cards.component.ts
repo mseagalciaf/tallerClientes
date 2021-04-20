@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteInterface } from 'src/app/interfaces/cliente-interface';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  clientes:ClienteInterface;
+
+  constructor(
+    private clienteService : ClienteService
+  ) {
+    this.getClientes();
+   }
 
   ngOnInit(): void {
+  }
+
+  getClientes(){
+    this.clienteService.getAllClientes().subscribe(
+      resp => {
+        this.clientes=resp;
+        console.log(this.clientes);
+                
+      }
+    )
   }
 
 }

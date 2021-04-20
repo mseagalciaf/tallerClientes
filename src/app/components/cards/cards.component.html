@@ -1,1 +1,11 @@
-<p>cards works!</p>
+<div class="row">
+    <div class="col-3" *ngFor="let cliente of clientes">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{cliente.nombre}}  {{cliente.apellido}}</h5>
+              <p class="card-text">{{cliente.email}}</p>
+              <p class="card-text">{{cliente.telefono}}</p>
+            </div>
+        </div>
+    </div>
+</div>
